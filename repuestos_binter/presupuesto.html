@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Esta es la cabecera -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Este es el titulo de la pagina y el titulo de la empresa -->
+  <title>SOLICITA TU PRESUPUESTO - REPUESTOS BINTER</title>
+  <!--Enlace al archivo CSS -->
+  <link rel="stylesheet" href="/media/pichijr21/TOSHIBA EXT/CURSO SUPERIOR PROGRAMACIÓN PAGINAS WEB/HTML-CSS/JORGE_UCAR_TRABAJOHTML/css/estilos.css">
+</head>
+
+<body>
+
+   <!-- Aqui vamos a mostrar el menu de navegacion de la página en el cual dejamos como el enlace activo el de presupuesto.html-->
+  <header>
+    <nav>
+      <ul>
+            <li><a href="/media/pichijr21/TOSHIBA EXT/CURSO SUPERIOR PROGRAMACIÓN PAGINAS WEB/HTML-CSS/JORGE_UCAR_TRABAJOHTML/index.html">Inicio</a></li>
+            <li><a href="/media/pichijr21/TOSHIBA EXT/CURSO SUPERIOR PROGRAMACIÓN PAGINAS WEB/HTML-CSS/JORGE_UCAR_TRABAJOHTML/repuestos_binter/producto.html">Repuestos</a></li>
+            <li><a href="/media/pichijr21/TOSHIBA EXT/CURSO SUPERIOR PROGRAMACIÓN PAGINAS WEB/HTML-CSS/JORGE_UCAR_TRABAJOHTML/repuestos_binter/presupuesto.html" class="activo">PRESUPUESTO</a></li>
+            <li><a href="/media/pichijr21/TOSHIBA EXT/CURSO SUPERIOR PROGRAMACIÓN PAGINAS WEB/HTML-CSS/JORGE_UCAR_TRABAJOHTML/repuestos_binter/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Aqui lo que hacemos es crear un formulario en el cual solicites un presupuesto con las diferentes casillas que te ponemos, nombre, email, telefono, mensaje, aceptación de las politicas de privacidad y el boton de Enviar solicitud para que pulses cuando acabes de rellenar el formulario, cuando acabes y le hayas dado al boton de enviar solicitud se enviara una propuesta personalizada de un presupuesto -->
+  <main>
+            <h2>SOLICITA TU PRESUPUESTO</h2>
+            <p>Completa el siguiente formulario y te enviaremos una propuesta personalizada.</p>
+
+    <form action="#" method="post">
+      <!-- Campo de nombre, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
+            <label>Nombre:</label>
+            <input type="text" name="nombre" required>
+
+      <!-- Campo de correo, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+      <!-- Campo de teléfono, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
+            <label>Teléfono:</label>
+            <input type="tel" name="telefono" pattern="[0-9]{9}" required>
+
+      <!-- Campo de mensaje, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
+            <label>Indica el repuesto o servicio que necesitas:</label>
+            <textarea name="mensaje" rows="4" required></textarea>
+
+      <!-- Checkbox de aceptación, Introducimos un checkbox para que acepte la privacidad que cuando seleccione la casilla saldra como un tick y cuando la quite no saldra nada-->
+            <label>
+              <input type="checkbox" required>
+              Acepto la Política de privacidad
+            </label>
+
+      <!-- Botón de envío, Introducimos el boton(tipo submit) para que cuando le demos sepamos que ya esta rellenado el formulario-->
+            <input type="submit" value="Enviar solicitud">
+    </form>
+  </main>
+
+  <!-- Aqui mostramos el Pie de página -->
+  <footer>
+            <p>© 2025/2026 REPUESTOS BINTER</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+/* =============================
+   ESTILOS GENERALES
+============================= */
+body {
+  font-family: Calibri, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+/* =============================
+   ENCABEZADO Y MENÚ
+============================= */
+header {
+  background: #222;
+  color: green;
+  padding: 25px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 30px;
+}
+
+/* Enlace activo o al pasar el ratón */
+nav a:hover,
+nav a.activo {
+  background: #e63946;
+  border-radius: 15px;
+}
+
+/* =============================
+   CONTENIDO PRINCIPAL
+============================= */
+main {
+  padding: 30px;
+  background: white;
+  max-width: 1500px;
+  margin: 30px auto;
+  border-radius: 20px;
+}
+
+/* =============================
+   GALERÍA DE PRODUCTOS
+============================= */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.galeria img {
+  width: 100%;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+}
+
+/* =============================
+   FORMULARIOS
+============================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+}
+
+input[type="submit"] {
+  background: #e63946;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+  background: #b91c1c;
+}
+
+/*Aqui vamos a poner como esta alineado el texto(text-akign), el color de fondo que va a tener el pie pagina(background), el color de la letra que lleva el pie de pagina(color), los margenes del pie de pagina*/
+footer {
+  background: #222;
+  color: green;
+  text-align: center;
+  padding: 50px;
+}
+
+footer .redes img {
+  width: 60px;
+  margin: 0 25px;
+}
+
+.mapa {
+  width: 45%;
+  border-radius: 40px;
+  margin-top: 15px;
+}
