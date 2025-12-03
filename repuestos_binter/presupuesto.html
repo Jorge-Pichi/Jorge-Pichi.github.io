@@ -33,23 +33,23 @@
 
     <form action="#" method="post">
       <!-- Campo de nombre, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
-            <label>Nombre:</label>
-            <input type="text" name="nombre" required>
+            <label for="Nombre">Nombre:</label>
+            <input type="text" name="nombre" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,40}$" title="Solo letras y espacios. Entre 2 y 40 carácteres." required>
 
       <!-- Campo de correo, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
-            <label>Email:</label>
-            <input type="email" name="email" required>
+            <label for="Email>Email:</label>
+            <input type="email" name="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Introduce un correo valido."required>
 
       <!-- Campo de teléfono, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
-            <label>Teléfono:</label>
-            <input type="tel" name="telefono" pattern="[0-9]{9}" required>
+            <label for="Telefono">Teléfono:</label>
+            <input type="tel" name="telefono" pattern="[0-9]{9}" title="Debe contener exactamente 9 números" required>
 
       <!-- Campo de mensaje, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
-            <label>Indica el repuesto o servicio que necesitas:</label>
-            <textarea name="mensaje" rows="4" required></textarea>
+            <label for="Mensaje">Indica el repuesto o servicio que necesitas:</label>
+            <textarea name="mensaje" rows="4" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9 ,.;:()!?¿¡-]{5,500}$" title="Mensaje entre 5 y 600 carácteres, usando letras, números y signos básicos" required></textarea>
 
       <!-- Checkbox de aceptación, Introducimos un checkbox para que acepte la privacidad que cuando seleccione la casilla saldra como un tick y cuando la quite no saldra nada-->
-            <label>
+            <label for"Privacidad">
               <input type="checkbox" required>
               Acepto la Política de privacidad
             </label>
