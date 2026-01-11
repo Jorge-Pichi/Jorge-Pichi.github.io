@@ -102,6 +102,7 @@ footer {
 footer .redes img {
   width: 60px;
    height: 60px;
+   object-fit: cover;     /* CLAVE */
   border-radius: 25px;
   border: 1px solid #ddd;
   margin: 0 25px;
