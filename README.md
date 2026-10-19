@@ -1,1 +1,1 @@
-# Jorge-Pichi.github.io.tiendainformatica
+# Jorge-Pichi.github.io
