@@ -26,7 +26,7 @@ productos.forEach((producto, indice) => {
     const tarjeta = document.createElement("div");
     tarjeta.classList.add("producto");
 
-    const imagen = document.createElement("png");
+    const imagen = document.createElement("img");
     imagen.src = producto.imagen;
     imagen.alt = producto.nombre;
     imagen.loading = "lazy";
