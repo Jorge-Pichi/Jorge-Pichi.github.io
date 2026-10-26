@@ -1,104 +1,112 @@
+// Array con los productos de la galería
 const productos = [
-    {
-        nombre: "Ordenadores Portatles",
-        imagen: "../imagenes/ordenadoresPortatiles.png"
-    },
-    {
-        nombre: "Ordenadores Sobremesa",
-        imagen: "../imagenes/ordenadoresSobremesa.png"
-    },
-    {
-        nombre: "Piezas de Ordenador",
-        imagen: "../imagenes/piezasOrdenador.png"
-    }
-    
+  {
+    nombre: "Ordenadores Portátiles",
+    imagen: "imagenes/ordenadoresPortatiles.png"
+  },
+  {
+    nombre: "Ordenadores Sobremesa",
+    imagen: "imagenes/ordenadoresSobremesa.png"
+  },
+  {
+    nombre: "Piezas de Ordenador",
+    imagen: "imagenes/piezasOrdenador.png"
+  }
 ];
 
+// Obtener los elementos HTML
 const galeria = document.getElementById("galeria");
 const visor = document.getElementById("visor");
 const imagenGrande = document.getElementById("imagenGrande");
 const descripcion = document.getElementById("descripcion");
 
+const cerrar = document.getElementById("cerrar");
+const anterior = document.getElementById("anterior");
+const siguiente = document.getElementById("siguiente");
+
 let indiceActual = 0;
 
-// Crear la galería dinámicamente
+// CREAR GALERÍA DINÁMICAMENTE
 productos.forEach((producto, indice) => {
-    const tarjeta = document.createElement("div");
-    tarjeta.classList.add("producto");
 
-    const imagen = document.createElement("img");
-    imagen.src = producto.imagen;
-    imagen.alt = producto.nombre;
-    imagen.loading = "lazy";
+  const tarjeta = document.createElement("div");
+  tarjeta.classList.add("producto");
 
-    const titulo = document.createElement("h3");
-    titulo.textContent = producto.nombre;
+  const imagen = document.createElement("img");
+  imagen.src = producto.imagen;
+  imagen.alt = producto.nombre;
+  imagen.loading = "lazy";
 
-    tarjeta.appendChild(imagen);
-    tarjeta.appendChild(titulo);
+  const titulo = document.createElement("h3");
+  titulo.textContent = producto.nombre;
 
-    tarjeta.addEventListener("click", () => {
-        abrirImagen(indice);
-    });
+  tarjeta.appendChild(imagen);
+  tarjeta.appendChild(titulo);
 
-    galeria.appendChild(tarjeta);
+  // Abrir imagen al pulsar
+  tarjeta.addEventListener("click", () => {
+    abrirVisor(indice);
+  });
+
+  galeria.appendChild(tarjeta);
 });
 
-// Abrir imagen
-function abrirImagen(indice) {
-    indiceActual = indice;
-    actualizarImagen();
-    visor.hidden = false;
-    document.body.style.overflow = "hidden";
+// ABRIR VISOR
+function abrirVisor(indice) {
+  indiceActual = indice;
+  mostrarImagen();
+  visor.hidden = false;
 }
 
-// Actualizar imagen
-function actualizarImagen() {
-    imagenGrande.src = productos[indiceActual].imagen;
-    imagenGrande.alt = productos[indiceActual].nombre;
-    descripcion.textContent = productos[indiceActual].nombre;
+// MOSTRAR IMAGEN
+function mostrarImagen() {
+  imagenGrande.src = productos[indiceActual].imagen;
+  imagenGrande.alt = productos[indiceActual].nombre;
+  descripcion.textContent = productos[indiceActual].nombre;
 }
 
-// Imagen siguiente
-function siguienteImagen() {
-    indiceActual = (indiceActual + 1) % productos.length;
-    actualizarImagen();
-}
+// CERRAR VISOR
+cerrar.addEventListener("click", () => {
+  visor.hidden = true;
+});
 
-// Imagen anterior
-function anteriorImagen() {
-    indiceActual =
-        (indiceActual - 1 + productos.length) % productos.length;
-    actualizarImagen();
-}
+// IMAGEN ANTERIOR
+anterior.addEventListener("click", () => {
+  indiceActual =
+    (indiceActual - 1 + productos.length) % productos.length;
 
-// Cerrar visor
-function cerrarVisor() {
+  mostrarImagen();
+});
+
+// IMAGEN SIGUIENTE
+siguiente.addEventListener("click", () => {
+  indiceActual = (indiceActual + 1) % productos.length;
+
+  mostrarImagen();
+});
+
+// Cerrar pulsando fuera de la imagen
+visor.addEventListener("click", (event) => {
+  if (event.target === visor) {
     visor.hidden = true;
-    document.body.style.overflow = "";
-}
-
-document.getElementById("siguiente")
-    .addEventListener("click", siguienteImagen);
-
-document.getElementById("anterior")
-    .addEventListener("click", anteriorImagen);
-
-document.getElementById("cerrar")
-    .addEventListener("click", cerrarVisor);
-
-// Cerrar al pulsar fuera de la imagen
-visor.addEventListener("click", (evento) => {
-    if (evento.target === visor) {
-        cerrarVisor();
-    }
+  }
 });
 
-// Control mediante teclado
-document.addEventListener("keydown", (evento) => {
-    if (visor.hidden) return;
+// Controles del teclado
+document.addEventListener("keydown", (event) => {
 
-    if (evento.key === "Escape") cerrarVisor();
-    if (evento.key === "ArrowRight") siguienteImagen();
-    if (evento.key === "ArrowLeft") anteriorImagen();
+  if (visor.hidden) return;
+
+  if (event.key === "Escape") {
+    visor.hidden = true;
+  }
+
+  if (event.key === "ArrowRight") {
+    siguiente.click();
+  }
+
+  if (event.key === "ArrowLeft") {
+    anterior.click();
+  }
+
 });
