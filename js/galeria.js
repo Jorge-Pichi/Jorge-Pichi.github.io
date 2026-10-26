@@ -2,15 +2,15 @@
 const productos = [
   {
     nombre: "Ordenadores Portátiles",
-    imagen: "imagenes/ordenadoresPortatiles.png"
+    imagen: "../imagenes/ordenadoresPortatiles.png"
   },
   {
     nombre: "Ordenadores Sobremesa",
-    imagen: "imagenes/ordenadoresSobremesa.png"
+    imagen: "../imagenes/ordenadoresSobremesa.png"
   },
   {
     nombre: "Piezas de Ordenador",
-    imagen: "imagenes/piezasOrdenador.png"
+    imagen: "../imagenes/piezasOrdenador.png"
   }
 ];
 
