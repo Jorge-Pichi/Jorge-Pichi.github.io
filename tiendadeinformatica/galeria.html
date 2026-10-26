@@ -23,35 +23,47 @@
       </ul>
     </nav>
   </header>
-    <main>
-        <section class="section-galeria">
-            <h2>Nuestros productos y servicios</h2>
-            <p>
-                Descubre nuestros equipos informáticos, componentes y servicios de reparación.
-            </p>
-    <!--galeria generada mediante JavaScript -->
-    <div id="galeria class="galeria></div>
-        </section>
-    </main>
+     <main>
 
-    <!-- Ventana para ampliar imágenes -->
-    <div id="visor" class="visor" role="dialog"
-         aria-modal="true" aria-label="Visor de imágenes"
-         hidden>
+    <section class="seccion-galeria">
+      <h2>Galería de productos</h2>
 
-        <button id="cerrar" class="cerrar"
-                aria-label="Cerrar imagen">&times;</button>
+      <p>
+        Descubre nuestros productos informáticos.
+        Haz clic sobre una imagen para ampliarla.
+      </p>
 
-        <button id="anterior" class="anterior"
-                aria-label="Imagen anterior">&#10094;</button>
+      <!-- JavaScript insertará los productos -->
+      <div id="galeria" class="galeria"></div>
+    </section>
+
+    <!-- Visor de imágenes -->
+    <div id="visor" class="visor" hidden>
+
+      <div class="visor-contenido">
+
+        <button type="button" id="cerrar"
+                aria-label="Cerrar visor">X</button>
+
+        <button type="button" id="anterior"
+                aria-label="Imagen anterior">
+          &#10094;
+        </button>
 
         <img id="imagenGrande" src="" alt="">
 
-        <button id="siguiente" class="siguiente"
-                aria-label="Imagen siguiente">&#10095;</button>
+        <button type="button" id="siguiente"
+                aria-label="Imagen siguiente">
+          &#10095;
+        </button>
 
         <p id="descripcion"></p>
+
+      </div>
+
     </div>
+
+  </main>
 
      <!-- Pie de página en el cual van a salir las dos redes sociales en las que creemos que mas podemos motrar nuestros productos que vendemos-->
   <footer role="contentinfo">
