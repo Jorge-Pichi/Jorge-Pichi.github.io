@@ -30,34 +30,88 @@
   <!-- Aqui lo que hacemos es crear un formulario en el cual solicites un presupuesto con las diferentes casillas que te ponemos, nombre, email, telefono, mensaje, aceptación de las politicas de privacidad y el boton de Enviar solicitud para que pulses cuando acabes de rellenar el formulario, cuando acabes y le hayas dado al boton de enviar solicitud se enviara una propuesta personalizada de un presupuesto -->
   <main>
             <h2>SOLICITA TU PRESUPUESTO</h2>
-            <p>Completa el siguiente formulario y te enviaremos una propuesta personalizada.</p>
+      <form id="formularioPresupuesto" novalidate>
 
-    <form action="#" method="post">
+    <fieldset>
       <!-- Campo de nombre, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
             <label for="Nombre">Nombre:</label>
-            <input type="text" name="nombre" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,40}$" title="Solo letras y espacios. Entre 2 y 40 carácteres." required>
-
+            <input type="text" id="nombre" name="nombre" maxlength="15" required>
+      <!--Campo de apellidos, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
+           <label for="Apellidos">Apellidos:</label>
+          <input type="text" id="apellidos" name="apellidos" maxlength="40" required>
+       <!--Campo de teléfono, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
+           <label for="Tel">Apellidos:</label>
+          <input type="text" id="telefono" name="telefono" maxlength="9" required>
       <!-- Campo de correo, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
             <label for="Email">Email:</label>
-            <input type="email" name="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Introduce un correo correcto" required>
+            <input type="email" id="email" name="email"required>
+    </fieldset>
+    
+          <!-- SEGUNDA PARTE: PRESUPUESTO -->
+      <fieldset>
+        <legend>Calcula tu presupuesto</legend>
 
-      <!-- Campo de teléfono, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
-            <label for="Telefono">Teléfono:</label>
-            <input type="tel" name="telefono" pattern="[0-9]{9}" title="Debe contener exactamente 9 números" required>
+        <label for="producto">Selecciona un producto:</label>
+        <select id="producto" name="producto" required>
+          <option value="">Selecciona un producto</option>
+          <option value="800">Ordenador portátil - 800 €</option>
+          <option value="1200">Ordenador sobremesa - 1200 €</option>
+          <option value="400">Piezas de ordenador - 400 €</option>
+        </select>
 
-      <!-- Campo de mensaje, Introducimos el texto que va a llevar(label) y luego un formulario pequeño para poder escribir con el textarea-->
-            <label for="Mensaje">Indica la pieza o servicio que necesitas:</label>
-            <textarea name="mensaje" rows="4" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9 ,.;:()!?¿¡-]{5,500}$" title="Mensaje entre 5 y 500 carácteres, usando letras, números y signos básicos" required></textarea>
+        <label for="plazo">Plazo de entrega (meses):</label>
+        <input type="number" id="plazo" name="plazo"
+               min="1" max="12" required>
 
-      <!-- Checkbox de aceptación, Introducimos un checkbox para que acepte la privacidad que cuando seleccione la casilla saldra como un tick y cuando la quite no saldra nada-->
-            <label for="Privacidad">
-              <input type="checkbox" required>
-              Acepto la Política de privacidad
-            </label>
+        <p>Selecciona los extras:</p>
 
-      <!-- Botón de envío, Introducimos el boton(tipo submit) para que cuando le demos sepamos que ya esta rellenado el formulario-->
-            <input type="submit" value="Enviar solicitud">
+        <div class="extras">
+          <label>
+            <input type="checkbox" class="extra"
+                   name="extras" value="50">
+            Instalación de software (+50 €)
+          </label>
+
+          <label>
+            <input type="checkbox" class="extra"
+                   name="extras" value="100">
+            Ampliación de memoria RAM (+100 €)
+          </label>
+
+          <label>
+            <input type="checkbox" class="extra"
+                   name="extras" value="80">
+            Garantía adicional (+80 €)
+          </label>
+        </div>
+
+        <label for="presupuesto">Presupuesto final:</label>
+        <input type="text" id="presupuesto"
+               name="presupuesto" value="0.00 €" readonly>
+
+      </fieldset>
+
+      <!-- CONDICIONES Y ENVÍO -->
+      <fieldset>
+        <legend>Condiciones y envío</legend>
+
+        <label>
+          <input type="checkbox" id="condiciones"
+                 name="condiciones" required>
+          Acepto la política de privacidad
+          y las condiciones del servicio.
+        </label>
+
+        <div class="botones">
+          <button type="submit">Enviar presupuesto</button>
+          <button type="reset">Restablecer</button>
+        </div>
+      </fieldset>
+
+      <p id="mensaje" role="status" aria-live="polite"></p>
+
     </form>
+    </fieldset>
   </main>
 
   <!-- Aqui mostramos el Pie de página -->
