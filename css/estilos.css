@@ -1,6 +1,7 @@
 /* =============================
    ESTILOS GENERALES
 ============================= */
+
 body {
   font-family: Calibri, sans-serif;
   margin: 0;
@@ -10,186 +11,70 @@ body {
 /* =============================
    ENCABEZADO Y MENÚ
 ============================= */
+
 header {
   background: #222;
   color: green;
   padding: 25px 0;
 }
 
+/* LOGO DE LA EMPRESA */
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+}
+
+.logo img {
+  width: 180px;
+  height: auto;
+  max-width: 100%;
+}
+
+.logo h1 {
+  color: green;
+  font-size: 32px;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+
 nav ul {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 nav a {
+  display: block;
   color: white;
   text-decoration: none;
   padding: 15px 30px;
 }
 
 /* Enlace activo o al pasar el ratón */
+
 nav a:hover,
 nav a.activo {
-  background: #green;
+  background: green;
   border-radius: 15px;
 }
 
 /* =============================
    CONTENIDO PRINCIPAL
 ============================= */
+
 main {
   padding: 30px;
   background: white;
   max-width: 1500px;
   margin: 30px auto;
   border-radius: 20px;
-}
-
-
-/* =============================
-   GALERÍA DE PRODUCTOS
-============================= */
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-/* TARJETAS DE PRODUCTOS */
-.producto {
-  text-align: center;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.producto:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* IMÁGENES DE PRODUCTOS */
-.galeria img {
-  width: 170px;
-  height: 170px;
-  max-width: 100%;
-  object-fit: contain;
-  border-radius: 25px;
-  border: 1px solid #ddd;
-}
-
-/* TÍTULO DEL PRODUCTO */
-.producto h3 {
-  margin-top: 10px;
-}
-
-/* =============================
-   VISOR DE IMÁGENES
-============================= */
-.visor {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  background: rgba(0, 0, 0, 0.9);
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  z-index: 1000;
-}
-
-/* OCULTAR EL VISOR */
-.visor[hidden] {
-  display: none;
-}
-
-/* CONTENIDO DEL VISOR */
-.contenido-visor {
-  text-align: center;
-  color: white;
-}
-
-.contenido-visor img {
-  max-width: 75vw;
-  max-height: 75vh;
-  object-fit: contain;
-}
-
-/* BOTONES DEL VISOR */
-.visor button {
-  background: orange;
-  border: none;
-  padding: 12px;
-  cursor: pointer;
-  font-size: 24px;
-  border-radius: 8px;
-}
-
-.visor button:hover {
-  background: darkorange;
-}
-
-/* BOTÓN CERRAR */
-#cerrar {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-
-/* =============================
-   FORMULARIOS
-============================= */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-input, textarea {
-  padding: 10px;
-  border: 1px solid #bbb;
-  border-radius: 10px;
-}
-
-input[type="submit"] {
-  background: #e63946;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-input[type="submit"]:hover {
-  background: #b91c1c;
-}
-
-/*Aqui vamos a poner como esta alineado el texto(text-akign), el color de fondo que va a tener el pie pagina(background), el color de la letra que lleva el pie de pagina(color), los margenes del pie de pagina*/
-footer {
-  background: #222;
-  color: green;
-  text-align: center;
-  padding: 50px;
-}
-
-footer .redes img {
-  width: 60px;
-   height: 60px;
-   object-fit: cover;     /* CLAVE */
-  border-radius: 25px;
-  border: 1px solid #ddd;
-  margin: 0 25px;
-}
-
-.mapa {
-  width: 45%;
-  border-radius: 40px;
-  margin-top: 15px;
 }
 
 /* =============================
@@ -225,7 +110,10 @@ section p {
 
 #contenedor-noticias {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  );
   gap: 20px;
 }
 
@@ -247,15 +135,347 @@ section p {
 }
 
 /* =============================
+   GALERÍA DINÁMICA
+============================= */
+
+/* SECCIÓN DE GALERÍA */
+
+.seccion-galeria {
+  text-align: center;
+  padding: 30px;
+}
+
+/* CONTENEDOR DE LA GALERÍA */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  );
+  gap: 20px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* TARJETAS DE PRODUCTOS */
+
+.galeria .producto {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background: white;
+  cursor: pointer;
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* EFECTO AL PASAR EL RATÓN */
+
+.galeria .producto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* IMÁGENES DE PRODUCTOS */
+
+.galeria img {
+  width: 170px;
+  height: 170px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+}
+
+/* TÍTULO DEL PRODUCTO */
+
+.galeria h3 {
+  margin-top: 15px;
+  color: #222;
+}
+
+/* =============================
+   VISOR DE IMÁGENES
+============================= */
+
+/* FONDO DEL VISOR */
+
+.visor {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* OCULTAR EL VISOR */
+
+.visor[hidden] {
+  display: none;
+}
+
+/* CONTENIDO DEL VISOR */
+
+.visor-contenido {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  max-width: 90%;
+  color: white;
+}
+
+/* IMAGEN AMPLIADA */
+
+#imagenGrande {
+  max-width: 70vw;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 15px;
+  background: white;
+}
+
+/* DESCRIPCIÓN DE LA IMAGEN */
+
+#descripcion {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+/* BOTÓN CERRAR */
+
+#cerrar {
+  position: absolute;
+  top: -45px;
+  right: 0;
+}
+
+/* BOTONES DEL VISOR */
+
+#cerrar,
+#anterior,
+#siguiente {
+  background: #ff8c00;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* EFECTO DE LOS BOTONES */
+
+#cerrar:hover,
+#anterior:hover,
+#siguiente:hover {
+  background: #e67300;
+}
+
+/* =============================
+   FORMULARIOS GENERALES
+============================= */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input,
+textarea,
+select {
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  background: #e63946;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+  background: #b91c1c;
+}
+
+/* =============================
+   FORMULARIO DE PRESUPUESTO
+============================= */
+
+#formularioPresupuesto {
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+/* APARTADOS DEL FORMULARIO */
+
+#formularioPresupuesto fieldset {
+  border: 2px solid #ff8c00;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
+  min-width: 0;
+}
+
+/* TÍTULOS DE LOS APARTADOS */
+
+#formularioPresupuesto legend {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff8c00;
+}
+
+/* ETIQUETAS */
+
+#formularioPresupuesto label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* CAMPOS DEL FORMULARIO */
+
+#formularioPresupuesto input:not([type="checkbox"]),
+#formularioPresupuesto select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* EFECTO AL SELECCIONAR UN CAMPO */
+
+#formularioPresupuesto input:focus,
+#formularioPresupuesto select:focus {
+  outline: 2px solid #ff8c00;
+}
+
+/* EXTRAS DEL PRESUPUESTO */
+
+#formularioPresupuesto .extras label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: normal;
+}
+
+#formularioPresupuesto input[type="checkbox"] {
+  width: auto;
+  cursor: pointer;
+}
+
+/* PRESUPUESTO FINAL */
+
+#presupuesto {
+  background: #f2f2f2;
+  font-weight: bold;
+  color: green;
+}
+
+/* BOTONES DEL FORMULARIO */
+
+.botones {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.botones button {
+  background: #ff8c00;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.botones button:hover {
+  background: #e67300;
+}
+
+/* MENSAJE DE VALIDACIÓN */
+
+#mensaje {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* =============================
+   PIE DE PÁGINA
+============================= */
+
+footer {
+  background: #222;
+  color: green;
+  text-align: center;
+  padding: 50px;
+}
+
+/* ICONOS DE REDES SOCIALES */
+
+footer .redes img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  margin: 0 25px;
+}
+
+/* ENLACES DEL FOOTER */
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #ff8c00;
+}
+
+/* =============================
+   MAPA DE CONTACTO
+============================= */
+
+.mapa {
+  width: 45%;
+  max-width: 100%;
+  border-radius: 40px;
+  margin-top: 15px;
+}
+
+/* =============================
    ADAPTACIÓN A MÓVILES
 ============================= */
 
 @media (max-width: 768px) {
 
+  /* CONTENIDO PRINCIPAL */
+
   main {
     margin: 15px;
     padding: 15px;
   }
+
+  /* MENÚ DE NAVEGACIÓN */
 
   nav ul {
     flex-direction: column;
@@ -268,22 +488,98 @@ section p {
     padding: 10px 20px;
   }
 
+  /* LOGO */
+
+  .logo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo img {
+    width: 130px;
+  }
+
+  .logo h1 {
+    font-size: 24px;
+  }
+
+  /* SECCIONES */
+
+  section {
+    padding: 15px;
+  }
+
+  /* GALERÍA */
+
+  .seccion-galeria {
+    padding: 15px;
+  }
+
   .galeria {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(150px, 100%), 1fr)
+    );
+    gap: 15px;
+    padding: 10px;
   }
 
   .galeria img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 170px;
     height: auto;
+    object-fit: contain;
   }
+
+  /* VISOR DE IMÁGENES */
+
+  .visor-contenido {
+    gap: 10px;
+  }
+
+  #imagenGrande {
+    max-width: 65vw;
+    max-height: 60vh;
+  }
+
+  #cerrar,
+  #anterior,
+  #siguiente {
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  /* NOTICIAS */
 
   #contenedor-noticias {
     grid-template-columns: 1fr;
   }
 
+  /* FORMULARIO DE PRESUPUESTO */
+
+  #formularioPresupuesto {
+    width: 100%;
+  }
+
+  #formularioPresupuesto fieldset {
+    padding: 15px;
+  }
+
+  .botones {
+    flex-direction: column;
+  }
+
+  .botones button {
+    width: 100%;
+  }
+
+  /* MAPA */
+
   .mapa {
     width: 100%;
   }
+
+  /* REDES SOCIALES */
 
   footer .redes img {
     width: 40px;
@@ -291,25 +587,8 @@ section p {
     margin: 5px;
   }
 
-      LOGO DE LA EMPRESA
-============================= */
+  footer {
+    padding: 25px;
+  }
 
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 15px;
-}
-
-.logo img {
-  width: 180px;
-  height: auto;
-  max-width: 100%;
-}
-
-.logo h1 {
-  color: green;
-  font-size: 32px;
-}
 }
